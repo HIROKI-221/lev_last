@@ -13,10 +13,11 @@
                 <div class='post'>
                     <h2 class='title'>
                         <a href="/tasks/{{ $task->id }}">{{ $task->title }}</a>
+                        <div class="edit"><a href="/tasks/{{ $task->id }}/edit">edit</a></div>
                     </h2>
                 </div>
             @endforeach
         </div>
-        <a href='/posts/create'>create</a>
+        <a href='/tasks/create'>create</a>
     </body>
 </html>

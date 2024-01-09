@@ -14,20 +14,12 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/posts', [PostController::class, 'index']);
 
-Route::get('/', function() {
-    return view('posts.top');
-    });
-
+Route::get('/tasks', [PostController::class, 'index']);
 Route::get('/', [PostController::class, 'index']);
-
-Route::get('/posts/create', [PostController::class, 'create']);
-
+Route::get('/tasks/create', [PostController::class, 'create']);
 Route::get('/tasks/{task}', [PostController::class ,'show']);
-
-Route::post('/posts', [PostController::class, 'store']);
+Route::get('/tasks/{task}/edit', [PostController::class, 'edit']);
+Route::put('/tasks/{task}', [PostController::class, 'update']);
+Route::post('/tasks', [PostController::class, 'store']);
