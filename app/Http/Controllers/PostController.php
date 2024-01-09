@@ -25,8 +25,21 @@ class PostController extends Controller
     
     public function store(TaskRequest $request, Task $task)
     {
-        $input = $request['post'];
+        $input = $request['task'];
         $task->fill($input)->save();
+        return redirect('/tasks/' . $task->id);
+    }
+    
+    public function edit(Task $task)
+    {
+        return view('posts.edit')->with(['task' => $task]);
+    }
+    
+    public function update(TaskRequest $request, Task $task)
+    {
+        $input_task = $request['task'];
+        $task->fill($input_task)->save();
+        
         return redirect('/tasks/' . $task->id);
     }
 }
