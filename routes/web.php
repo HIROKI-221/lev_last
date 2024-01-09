@@ -25,3 +25,5 @@ Route::get('/', function() {
     });
 
 Route::get('/', [PostController::class, 'index']);
+
+Route::get('/tasks/{task}', [PostController::class ,'show']);
