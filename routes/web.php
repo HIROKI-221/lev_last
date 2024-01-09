@@ -23,3 +23,4 @@ Route::get('/tasks/{task}', [PostController::class ,'show']);
 Route::get('/tasks/{task}/edit', [PostController::class, 'edit']);
 Route::put('/tasks/{task}', [PostController::class, 'update']);
 Route::post('/tasks', [PostController::class, 'store']);
+Route::delete('/tasks/{task}', [PostController::class, 'delete']);
