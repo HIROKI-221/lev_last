@@ -13,7 +13,20 @@
                 <div class='post'>
                     <h2 class='title'>
                         <a href="/tasks/{{ $task->id }}">{{ $task->title }}</a>
-                        <div class="edit"><a href="/tasks/{{ $task->id }}/edit">edit</a></div>
+                        <form action="/tasks/{{ $task->id }}" id="form_{{ $task->id }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" onclick="deleteTask({{ $task->id }})">delete</button>
+                        </form>
+                    <script>
+                        function deletePost(id) {
+                            'use strict'
+                        
+                            if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
+                                document.getElementById(`form_${id}`).submit();
+                            }
+                        }
+                    </script>
                     </h2>
                 </div>
             @endforeach
