@@ -7,7 +7,8 @@ use App\Models\Task;
 
 class PostController extends Controller
 {
-    public function index(Task $task){
-        return $task->get();
-    }
+    public function index(Task $task)
+{
+    return view('posts.top')->with(['tasks' => $task->get()]);
+}
 }
