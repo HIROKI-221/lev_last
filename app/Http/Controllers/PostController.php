@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Http\Requests\TaskRequest;
 
 class PostController extends Controller
 {
@@ -15,5 +16,17 @@ class PostController extends Controller
     public function show(Task $task)
     {
         return view('posts.each')->with(['task' => $task]);
+    }
+    
+    public function create()
+    {
+        return view('posts.create');
+    }
+    
+    public function store(TaskRequest $request, Task $task)
+    {
+        $input = $request['post'];
+        $task->fill($input)->save();
+        return redirect('/tasks/' . $task->id);
     }
 }

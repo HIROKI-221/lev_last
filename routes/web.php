@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/', function() {
     return view('posts.top');
@@ -26,4 +26,8 @@ Route::get('/', function() {
 
 Route::get('/', [PostController::class, 'index']);
 
+Route::get('/posts/create', [PostController::class, 'create']);
+
 Route::get('/tasks/{task}', [PostController::class ,'show']);
+
+Route::post('/posts', [PostController::class, 'store']);
