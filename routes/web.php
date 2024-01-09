@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get(
-    '/tasks', [PostController::class, 'index']
-    );
+Route::get('/tasks', [PostController::class, 'index']);
+
+Route::get('/', function() {
+    return view('posts.top');
+    });
+
+Route::get('/', [PostController::class, 'index']);
