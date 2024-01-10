@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
     public function index(Task $task)
     {
-        return view('tasks.top')->with(['tasks' => $task->get()]);
+        return view('tasks.top')->with(['records' => $task->getByCategory()]);
     }
     
     public function show(Task $task)

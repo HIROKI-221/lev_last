@@ -12,7 +12,7 @@
             @foreach ($tasks as $task)
                 <div class='post'>
                     <h2 class='title'>
-                        <a href="/tasks/{{ $task->id }}">{{ $task->title }}</a>
+                        <a href="/records/{{ $record->task->id }}">{{ $record->task->title }}</a>
                         <form action="/tasks/{{ $task->id }}" id="form_{{ $task->id }}" method="post">
                         @csrf
                         @method('DELETE')
@@ -26,7 +26,7 @@
                                     document.getElementById(`form_${id}`).submit();
                                 }
                             }
-                    </script>
+                        </script>
                     </h2>
                 </div>
             @endforeach
