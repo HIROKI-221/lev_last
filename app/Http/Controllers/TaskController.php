@@ -6,21 +6,21 @@ use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Http\Requests\TaskRequest;
 
-class PostController extends Controller
+class TaskController extends Controller
 {
     public function index(Task $task)
     {
-        return view('posts.top')->with(['tasks' => $task->get()]);
+        return view('tasks.top')->with(['tasks' => $task->get()]);
     }
     
     public function show(Task $task)
     {
-        return view('posts.each')->with(['task' => $task]);
+        return view('tasks.each')->with(['task' => $task]);
     }
     
     public function create()
     {
-        return view('posts.create');
+        return view('tasks.create');
     }
     
     public function store(TaskRequest $request, Task $task)
@@ -32,7 +32,7 @@ class PostController extends Controller
     
     public function edit(Task $task)
     {
-        return view('posts.edit')->with(['task' => $task]);
+        return view('tasks.edit')->with(['task' => $task]);
     }
     
     public function update(TaskRequest $request, Task $task)
