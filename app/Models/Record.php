@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Task extends Model
+class Record extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -19,19 +19,14 @@ class Task extends Model
     }
     
     protected $fillable = [
-        'title',
+        'date',
         ];
         
     public $timestamps = false;
     
-    public function records()
+    public function task()
     {
-        return $this->hasMany(Record::class);
-    }
-    
-    public function getByCategory(int $limit_count = 5)
-    {
-        return $this->records()->with('task')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this->belongsTo(Task::class);
     }
 
 }

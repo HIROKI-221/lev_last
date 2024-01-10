@@ -11,6 +11,7 @@
         <h1 class="title">
             {{ $task->title }}
         </h1>
+        <a href='/records/create'>記録の追加</a>
         <div class="content">
             <div class="content__post">
                 <h3>本文</h3>
