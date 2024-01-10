@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +16,11 @@ use App\Http\Controllers\PostController;
 
 
 
-Route::get('/tasks', [PostController::class, 'index']);
-Route::get('/', [PostController::class, 'index']);
-Route::get('/tasks/create', [PostController::class, 'create']);
-Route::get('/tasks/{task}', [PostController::class ,'show']);
-Route::get('/tasks/{task}/edit', [PostController::class, 'edit']);
-Route::put('/tasks/{task}', [PostController::class, 'update']);
-Route::post('/tasks', [PostController::class, 'store']);
-Route::delete('/tasks/{task}', [PostController::class, 'delete']);
+Route::get('/tasks', [TaskController::class, 'index']);
+Route::get('/', [TaskController::class, 'index']);
+Route::get('/tasks/create', [TaskController::class, 'create']);
+Route::get('/tasks/{task}', [TaskController::class ,'show']);
+Route::get('/tasks/{task}/edit', [TaskController::class, 'edit']);
+Route::put('/tasks/{task}', [TaskController::class, 'update']);
+Route::post('/tasks', [TaskController::class, 'store']);
+Route::delete('/tasks/{task}', [TaskController::class, 'delete']);
